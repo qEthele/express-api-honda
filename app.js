@@ -14,14 +14,20 @@ const login = require("./routes/login");
 
 mongoose.Promise = global.Promise;
 mongoose.set("strictQuery", false);
-mongoose.connect(process.env.MONGO_URL);
-
 mongoose
-  .connect(
-    "mongodb+srv://admin:qwerty123456@cluster0.lc8pgpz.mongodb.net/?retryWrites=true&w=majority"
-  )
-  .then(() => console.log("Connected"))
-  .catch(() => console.error(err));
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((error) => console.error("Error connecting to MongoDB", error));
+
+// mongoose
+//   .connect(
+//     "mongodb+srv://admin:qwerty123456@cluster0.lc8pgpz.mongodb.net/?retryWrites=true&w=majority"
+//   )
+//   .then(() => console.log("Connected"))
+//   .catch(() => console.error(err));
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
