@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
-const Billkin = require("../models/Billkin");
+const Billkin = require("../models/billkin");
 const AllData = require("../models/allData");
 
 router.get("/", (req, res, next) => {
