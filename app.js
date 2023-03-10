@@ -13,6 +13,8 @@ const allData = require("./routes/allData");
 const login = require("./routes/login");
 
 mongoose.Promise = global.Promise;
+mongoose.set("strictQuery", false);
+mongoose.connect(process.env.MONGO_URL);
 
 mongoose
   .connect(
