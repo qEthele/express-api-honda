@@ -12,7 +12,7 @@ router.get("/", (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
-  let check = AllData.findOne({ id: req.id }, (err, result) => {
+  let check = AllData.findOne({ id: req.body.id }, (err, result) => {
     if (result === null) {
       console.log(true);
 
